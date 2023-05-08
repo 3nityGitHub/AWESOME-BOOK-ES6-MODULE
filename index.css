@@ -72,9 +72,10 @@ button {
 .display-section {
   border: 3px solid black;
   margin: auto;
-  max-height: 63vh;
+  max-height: 65vh;
   overflow-x: hidden;
   overflow-y: scroll;
+  width: 80%;
 }
 
 .title-input {
