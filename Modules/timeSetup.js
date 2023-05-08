@@ -5,7 +5,7 @@ export const getTime = () => {
   if (!date.innerText) {
     setInterval(() => {
       date.innerText = DateTime.now().toLocaleString(
-        DateTime.DATETIME_MED_WITH_SECONDS
+        DateTime.DATETIME_MED_WITH_SECONDS,
       );
     }, 1000);
   }
