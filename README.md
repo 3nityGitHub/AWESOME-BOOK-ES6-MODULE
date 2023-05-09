@@ -25,9 +25,10 @@
 
 
 
-# [CAPSTONE PROJECT-1] <a name="about-project"></a>
+# [AWESOME BOOK PROJECT- ES6 MODULE] <a name="about-project"></a>
 
-> This capstone project is basically to showcase all that has been learnt through out the module. The project mimicks website for a startup conference billed to hold later this year, it is mimicked to have renowed speakers coming to speak and share their expertize and inspire young ones and aspiring entrepreneurs that their dreams can see the light of day. it shows only two pages home page (index.html) and about page (about.html). it is also designed to be responsive and can be viewed on multiple devices...
+> Awesome Books Website is a project that allows a user to add a book to a collection of books, display the books and remove them. I created the project using HTML and CSS and Javascript.
+
 
 ## [Built With] <a name="built-with"></a>
 
@@ -44,8 +45,8 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo](https://3nitygithub.github.io/CAPSTONE_PROJECT_1/)
-- [Project presentation](https://www.loom.com/share/32f3011548b34bdd998a501ba221c9f7)
+- [Source code:](https://github.com/3nityGitHub/AWESOME-BOOK-ES6-MODULE/)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
