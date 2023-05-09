@@ -45,6 +45,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
+- [Live demo:](https://3nitygithub.github.io/AWESOME-BOOK-ES6-MODULE/)
 - [Source code:](https://github.com/3nityGitHub/AWESOME-BOOK-ES6-MODULE/)
 
 
