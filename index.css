@@ -75,6 +75,7 @@ button {
   max-height: 55vh;
   overflow-x: hidden;
   overflow-y: scroll;
+  width: 70%;
 }
 
 .title-input {
