@@ -1,8 +1,8 @@
-import bookSet from './modules/bookSet.js';
-import booknav from './modules/bookNav.js';
-import dateNow from './modules/timeSetup.js';
+import Bookset from './modules/bookset.js';
+import booknav from './modules/booknav.js';
+import dateNow from './modules/timesetup.js';
 
-const bookset = new bookSet();
+const bookset = new Bookset();
 bookset.displaylist();
 bookset.addbtn();
 booknav();
