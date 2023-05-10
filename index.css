@@ -55,6 +55,13 @@ button {
   border-radius: 4px;
   box-shadow: rgba(119, 117, 117, 0.66) 0 1px 4px;
   background-color: #fff;
+  transform: translateY(10px);
+  transition: transform 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: rgb(250, 229, 204);
+  transform: translateY(10px) scale(1.1);
 }
 
 .book-stack {
@@ -107,11 +114,14 @@ button {
   box-shadow: rgba(0, 0, 0, 0.66) 0 1px 4px;
   cursor: pointer;
   align-self: end;
+  text-decoration: underline;
+  transform: translateY(10px);
+  transition: transform 0.3s ease-in-out;
 }
 
-.add-button:hover,
-button:hover {
-  background-color: rgb(247, 202, 147);
+.add-button:hover {
+  background-color: rgb(250, 229, 204);
+  transform: translateY(10px) scale(1.2);
 }
 
 #inputs {
