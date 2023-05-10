@@ -1,4 +1,4 @@
-const bookNav = () => {
+const booknav = () => {
   const navList = document.getElementById('display-list');
   const addNav = document.getElementById('display-add');
   const contactNav = document.getElementById('display-contact');
@@ -24,4 +24,4 @@ const bookNav = () => {
     addSection.style.display = 'none';
   });
 };
-export default bookNav;
+export default booknav;

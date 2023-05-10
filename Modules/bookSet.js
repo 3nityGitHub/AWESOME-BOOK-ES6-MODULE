@@ -1,78 +1,65 @@
-const bookSet = () => {
-  let books = JSON.parse(localStorage.getItem('bookData')) || [];
+import Book from './bookclass.js';
 
-  const addButton = document.querySelector('#addBook');
-  const formTitle = document.getElementById('title');
-  const formAuthor = document.getElementById('author');
-  const bookList = document.querySelector('#list');
+const addButton = document.querySelector('#addBook');
+const formTitle = document.getElementById('title');
+const formAuthor = document.getElementById('author');
+const bookList = document.querySelector('#list');
+const removeButton = document.createElement('button');
+removeButton.classList.add('my-button-container');
 
-  class Book {
-    constructor() {
-      this.title = document.getElementById('title');
-      this.author = document.getElementById('author');
-    }
-
-    removeBook(id) {
-      let bookData = JSON.parse(localStorage.getItem('bookData'));
-      bookData = bookData.filter((local) => local.id !== parseInt(id, 10));
-      books = bookData;
-      localStorage.setItem('bookData', JSON.stringify(books));
-      this.displaylist();
-    }
-
-    displaylist() {
-      books.forEach((book) => {
-        const bookCard = document.createElement('li');
-        const removeButton = document.createElement('button');
-        removeButton.classList.add('my-button-container');
-
-        bookCard.innerHTML += `    
-      <p class="my-title-container">'${book.title}' by ${book.author}</p>
-      `;
-        bookCard.id = `data-${book.id}`;
-        removeButton.textContent = 'Remove';
-        removeButton.dataset.id = book.id;
-        removeButton.addEventListener('click', (e) => {
-          const { id } = e.target.dataset;
-          this.removeBook(id);
-          const bookEl = document.getElementById(`data-${book.id}`);
-          bookList.removeChild(bookEl);
-          window.location.reload();
-        });
-        bookCard.appendChild(removeButton);
-        bookList.appendChild(bookCard);
-        bookCard.classList.add('book-stack');
-      });
-    }
-
-    addBook(title, author) {
-      if (title !== '' && author !== '') {
-        const book = {
-          id: books.length + 1,
-          title,
-          author,
-        };
-
-        books.push(book);
-        localStorage.setItem('bookData', JSON.stringify(books));
-        this.displaylist();
-      }
-    }
+export default class bookSet {
+  constructor() {
+    this.books = JSON.parse(localStorage.getItem('books')) || [];
   }
 
-  const newBook = new Book();
-  newBook.displaylist();
+  addBook = (title, author) => {
+    const book = new Book(title, author);
+    book.id = this.books.length + 1;
+    this.books.push(book);
+    localStorage.setItem('books', JSON.stringify(this.books));
+    while (bookList.firstChild) {
+      bookList.removeChild(bookList.firstChild);
+    }
+    this.displaylist();
+  }
 
-  // display all books by default
+  displaylist = () => {
+    this.books.forEach((book) => {
+      const bookCard = document.createElement('li');
+      bookCard.classList.add('book-stack');
+      const removeButton = document.createElement('button');
+      removeButton.classList.add('my-button-container');
+      bookCard.innerHTML += `    
+        <p class="my-title-container">${book.title} by ${book.author}</p>
+        `;
+      bookCard.id = `data-${book.id}`;
+      removeButton.addEventListener('click', (e) => {
+        const { id } = e.target.dataset;
+        this.removeBook(id);
+      });
+      removeButton.textContent = 'Remove';
+      removeButton.dataset.id = book.id;
+      bookCard.appendChild(removeButton);
+      bookList.appendChild(bookCard);
+    });
+  }
 
-  addButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    newBook.addBook(formTitle.value, formAuthor.value);
+  removeBook = (id) => {
+    this.books = this.books.filter((book) => book.id !== parseInt(id, 10));
+    localStorage.setItem('books', JSON.stringify(this.books));
+    while (bookList.firstChild) {
+      bookList.removeChild(bookList.firstChild);
+    }
+    this.displaylist();
+  }
 
-    formTitle.value = '';
-    formAuthor.value = '';
-    window.location.reload();
-  });
-};
+  addbtn = () => {
+    addButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      this.addBook(formTitle.value, formAuthor.value);
 
-export default bookSet;
+      formTitle.value = '';
+      formAuthor.value = '';
+    });
+  }
+}

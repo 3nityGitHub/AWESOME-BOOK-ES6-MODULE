@@ -1,9 +1,9 @@
-import bookNav from './Modules/bookNav.js';
-import bookSet from './Modules/bookSet.js';
-import getTime  from './Modules/timeSetup.js';
+import bookSet from './modules/bookSet.js';
+import booknav from './modules/bookNav.js';
+import dateNow from './modules/timeSetup.js';
 
-document.addEventListener('click', () => {
-  bookNav();
-  bookSet();
-  getTime();
-});
+const bookset = new bookSet();
+bookset.displaylist();
+bookset.addbtn();
+booknav();
+dateNow();
